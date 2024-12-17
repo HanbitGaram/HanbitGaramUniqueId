@@ -11,11 +11,15 @@ class UniqueId
     /**
      * Unique ID Generation Method
      *
+     * @param string|null $prefix Prefix to be added to the beginning of the unique ID
      * @param string|null $datetime Current date and time (yymmddhhmmss format)
-     * @return string URL-Safe Unique ID 14 digits (e.g. wyRTjRIRF-pGWw)
+     * @return string URL-Safe Unique ID 14~ strings (e.g. wyRTjRIRF-pGWw)
      */
-    public function generate(string $datetime = null): string
+    public function generate(string $prefix = null, string $datetime = null): string
     {
+        // Default: Default Prefix (e.g. Machine ID, Service ID...)
+        $prefix = $prefix ?? "";
+
         // Default: Current date and time
         $datetime = $datetime ?? date("ymdHis");
 
@@ -35,7 +39,7 @@ class UniqueId
         }, range(1, 4));
 
         // Result Combination
-        $result = $randomBytes[0] . $binaryParts['yearEnd2digit'] . $binaryParts['second'] .
+        $result = $prefix . $randomBytes[0] . $binaryParts['yearEnd2digit'] . $binaryParts['second'] .
             $randomBytes[1] . $binaryParts['month'] . $binaryParts['hour'] .
             $binaryParts['day'] . $randomBytes[2] . $binaryParts['minute'] .
             $randomBytes[3];
