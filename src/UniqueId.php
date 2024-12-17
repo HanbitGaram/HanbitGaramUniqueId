@@ -11,17 +11,19 @@ class UniqueId
     /**
      * Unique ID Generation Method
      *
-     * @param string|null $prefix Prefix to be added to the beginning of the unique ID
-     * @param string|null $datetime Current date and time (yymmddhhmmss format)
+     * @param array $options Options (prefix, datetime)
      * @return string URL-Safe Unique ID 14~ strings (e.g. wyRTjRIRF-pGWw)
      */
-    public function generate(string $prefix = null, string $datetime = null): string
+    public function generate(array $options = [
+     'prefix' => null,
+     'datetime' => null
+    ]): string
     {
         // Default: Default Prefix (e.g. Machine ID, Service ID...)
-        $prefix = $prefix ?? "";
+        $prefix = $options['prefix'] ?? "";
 
         // Default: Current date and time
-        $datetime = $datetime ?? date("ymdHis");
+        $datetime = $options['datetime'] ?? date("ymdHis");
 
         // Converting Date/Time Components
         $binaryParts = [
