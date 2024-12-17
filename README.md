@@ -4,10 +4,10 @@ Generates a unique, non-overlapping 14-character ID that is URL-safe.
 
 ## Installation
 ```bash
-composer require hanbitgaram/uniqid
+composer require hanbitgaram/unique-id
 ```
 ```bash
-composer.phar require hanbitgaram/uniqid
+composer.phar require hanbitgaram/unique-id
 ```
 
 ## Usage
