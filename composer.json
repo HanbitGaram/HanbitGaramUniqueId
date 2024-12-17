@@ -1,0 +1,23 @@
+{
+    "name": "hanbitgaram/unique-id",
+    "description": "Generates a unique, non-overlapping 14-character ID that is URL-safe.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hanbitgaram\\UniqueId\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": ">=7.0"
+        }
+    },
+    "authors": [
+        {
+            "name": "HanbitGaram",
+            "email": "webmaster@hanb.jp"
+        }
+    ],
+    "minimum-stability": "stable"
+}
